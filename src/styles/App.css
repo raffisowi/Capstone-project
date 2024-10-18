@@ -1,6 +1,10 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
 }
+
 
 /* das ist nur ein Test */
 

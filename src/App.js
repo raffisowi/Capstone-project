@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import Header from './Components/Header.js';
 import Nav from './Components/Nav.js';
 import Main from './Components/Main.js';

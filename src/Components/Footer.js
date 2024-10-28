@@ -1,6 +1,6 @@
 function Footer(){
     return (
-        <footer></footer>
+        <footer>by by</footer>
     );
 }
 export default Footer;

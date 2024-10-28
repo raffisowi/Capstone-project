@@ -7,6 +7,9 @@
 
 
 /* das ist nur ein Test */
+div {
+  display: grid;
+}
 
 .App-logo {
   height: 40vmin;

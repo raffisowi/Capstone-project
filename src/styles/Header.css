@@ -1,3 +1,30 @@
 .header {
-    background-color: lightgray;
+    background-color: #495E57;
+    display: flex;
+  }
+
+  .header-content {
+    color: #F4CE14;
+    margin-left: 120px;
+    text-align: left;
+    flex: auto;
+  }
+
+  .reserve-btn {
+    font-size: larger;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    border-radius: 10px;
+    width: min-content ;
+  }
+
+  .header-image {
+    margin-right: 120px;
+    display: flex;
   }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/Reservation.css';
 
 
 function BookingForm({ availableTimes, dispatch }) {
@@ -55,7 +56,7 @@ function BookingForm({ availableTimes, dispatch }) {
     return (
         <>
             <h2>Booking Form</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="bookingForm">
                 <fieldset>
                     <label htmlFor="res-date">Choose date</label>
                     <input 

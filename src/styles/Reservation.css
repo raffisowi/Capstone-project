@@ -1,0 +1,14 @@
+.bookingForm {
+    background-color: #495E57;
+    color: #F4CE14;
+    font-size: larger;
+    padding: 10px;
+    margin-left: 300px;
+    margin-right: 300px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+#res-date {
+    border: 2px solid black;
+}

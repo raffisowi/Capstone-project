@@ -1,6 +1,6 @@
 function Main(){
     return (
-        <main>hello</main>
+        <main></main>
     );
 }
 export default Main;

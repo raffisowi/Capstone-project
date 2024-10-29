@@ -1,8 +1,8 @@
 import '../styles/Nav.css'
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function Nav(){
-    const navigate = useNavigate();
+    
     return (
         
         <nav className="main-nav">

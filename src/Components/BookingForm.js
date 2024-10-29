@@ -1,16 +1,19 @@
 import { useState } from "react";
 
-function BookingForm(props) {
+function BookingForm({availableTimes, updateTimes}) {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [guest, setGuest] = useState(1);
     const [occasion, setOccasion] = useState("");
-    const [reservations, setReservations] = useState([]); 
+    
 
     
 
     function handleChangeDate(e) {
-        setDate(e.target.value);
+        const selectedDate = e.target.value;
+        setDate(selectedDate);
+
+        updateTimes(new Date(selectedDate));
     }
 
     function handleChangeTime(e) {
@@ -26,25 +29,28 @@ function BookingForm(props) {
     }
 
  
-    const handleSubmit = (e) => {
-        e.preventDefault(); 
-        
-        
-        const newReservation = {
+    function handleSubmit(e) {
+        e.preventDefault();
+    
+        const formData = {
             date,
             time,
             guest,
-            occasion
+            occasion,
         };
-
-       
-        setReservations((prevReservations) => [...prevReservations, newReservation]);
-
-        
-        setDate("");
-        setTime("");
-        setGuest(1);
-        setOccasion("");
+    
+        // Überprüfen, ob submitAPI verfügbar ist
+        if (typeof window.submitAPI === 'function') {
+            const success = window.submitAPI(formData);
+            if (success) {
+                alert("Reservation successful!");
+            } else {
+                alert("Failed to submit reservation. Please try again.");
+            }
+        } else {
+            console.error("submitAPI is not available.");
+            alert("Submission function is not available. Please try again later.");
+        }
     };
 
     return (
@@ -66,7 +72,7 @@ function BookingForm(props) {
                         id="res-time" 
                         value={time} 
                         onChange={handleChangeTime}>
-                        {props.availableTimes.map((availableTime, index) => (
+                        {availableTimes.map((availableTime, index) => (
                             <option key={index} value={availableTime}>
                                 {availableTime}
                             </option>
@@ -96,15 +102,7 @@ function BookingForm(props) {
             </form>
 
             
-            <h3>Your Reservations</h3>
-            <ul>
-                {reservations.map((reservation, index) => (
-                    <li key={index}>
-                        <strong>Date:</strong> {reservation.date}, <strong>Time:</strong> {reservation.time}, 
-                        <strong> Guests:</strong> {reservation.guest}, <strong>Occasion:</strong> {reservation.occasion}
-                    </li>
-                ))}
-            </ul>
+            
         </>
     );
 };

@@ -1,21 +1,23 @@
 import { useState } from "react";
 
-function BookingForm({availableTimes, updateTimes}) {
+
+function BookingForm({ availableTimes, dispatch }) {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [guest, setGuest] = useState(1);
     const [occasion, setOccasion] = useState("");
-    
+    const [reservations, setReservations] = useState([]); 
 
     
-
     function handleChangeDate(e) {
         const selectedDate = e.target.value;
         setDate(selectedDate);
 
-        updateTimes(new Date(selectedDate));
+        
+        dispatch({ type: 'UPDATE_TIMES', payload: selectedDate });
     }
 
+    
     function handleChangeTime(e) {
         setTime(e.target.value);
     }
@@ -28,30 +30,27 @@ function BookingForm({availableTimes, updateTimes}) {
         setOccasion(e.target.value);
     }
 
- 
-    function handleSubmit(e) {
-        e.preventDefault();
     
-        const formData = {
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+        
+        const newReservation = {
             date,
             time,
             guest,
-            occasion,
+            occasion
         };
+
+        
+        setReservations((prevReservations) => [...prevReservations, newReservation]);
+
+        
+        setDate("");
+        setTime("");
+        setGuest(1);
+        setOccasion("");
     
-        // Überprüfen, ob submitAPI verfügbar ist
-        if (typeof window.submitAPI === 'function') {
-            const success = window.submitAPI(formData);
-            if (success) {
-                alert("Reservation successful!");
-            } else {
-                alert("Failed to submit reservation. Please try again.");
-            }
-        } else {
-            console.error("submitAPI is not available.");
-            alert("Submission function is not available. Please try again later.");
-        }
-    };
+};
 
     return (
         <>
@@ -88,6 +87,7 @@ function BookingForm({availableTimes, updateTimes}) {
                         max={10} 
                         id="guests" 
                         value={guest} 
+                        aria-label="On Click"
                         onChange={handleChangeGuest}>
                     </input>
                     <p>Your number of guests: {guest}</p>
@@ -101,10 +101,17 @@ function BookingForm({availableTimes, updateTimes}) {
                 </fieldset> 
             </form>
 
-            
-            
+            <h3>Your Reservations</h3>
+            <ul>
+                {reservations.map((reservation, index) => (
+                    <li key={index}>
+                        <strong>Date:</strong> {reservation.date}, <strong>Time:</strong> {reservation.time}, 
+                        <strong> Guests:</strong> {reservation.guest}, <strong>Occasion:</strong> {reservation.occasion}
+                    </li>
+                ))}
+            </ul>
         </>
     );
-};
+}
 
 export default BookingForm;

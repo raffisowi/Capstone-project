@@ -1,19 +1,28 @@
 .header {
     background-color: #495E57;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
   }
 
   .header-content {
     color: #F4CE14;
     margin-left: 120px;
     text-align: left;
+  }
+
+  h3 {
+    color: #f8ccdc;
+    text-align: center;
     flex: auto;
   }
 
-  .header-content h3 {
-    color: #f8ccdc;
-    text-align: left;
-    flex: auto;
+  .header-image {
+    margin-right: 250px;
+    width: 250px;
+    height: 150px;
+    border-radius: 50%;
   }
 
   .reserve-btn {
@@ -36,8 +45,32 @@
     color: #F4CE14;
   }
 
-  .header-image {
-    margin-right: 120px;
-    display: flex;
-    border-radius: 50%;
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+    .header-content {
+      margin-left: 0;
+      text-align: center;
+    }
+
+    .header-image {
+      margin: 10px 0;
+      width: 80px;
+      height: 80px;
+    }
+
+    .reserve-btn {
+      font-size: 1rem;
+      padding: 8px 20px;
+      width: auto;
+      margin-top: 10px;
+    }
   }
+
+
+
+
+

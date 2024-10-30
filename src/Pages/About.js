@@ -1,9 +1,8 @@
-import Header from '../Components/Header.js';
+
 function About(){
     return (
         <>
-        <h1>About</h1>
-        <Header />
+        <h1>About page coming soon...</h1>
         </>
     );
 };

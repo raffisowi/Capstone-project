@@ -10,12 +10,18 @@
     flex: auto;
   }
 
+  .header-content h3 {
+    color: #f8ccdc;
+    text-align: left;
+    flex: auto;
+  }
+
   .reserve-btn {
     font-size: larger;
     padding-left: 30px;
     padding-right: 30px;
     background-color: #ffcc00;
-    color: #333;
+    color:#495E57;
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -25,7 +31,13 @@
     margin-bottom: 30px;
   }
 
+  .reserve-btn:hover {
+    background-color: #3c4f48;
+    color: #F4CE14;
+  }
+
   .header-image {
     margin-right: 120px;
     display: flex;
+    border-radius: 50%;
   }

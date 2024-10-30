@@ -1,7 +1,9 @@
 .main-nav {
     overflow: hidden;
-    margin: 30px;
+    margin: 35px;
     display: flex;
+    margin-left: 300px;
+    margin-top: 40px;
     
 }
 
@@ -12,16 +14,25 @@
     color: #F4CE14;
     background-color: #495E57;
     display: inline;
-    text-align: center;
-    padding: 14px 20px;
+    text-align: right;
+    padding: 14px 30px 10px ;
     align-items: center;
-    border: 2px solid white;
+    border: 2px solid #F4CE14;
     border-radius: 10px;
-    margin-left: 30px;
+    margin-left: 40px;
+    margin-bottom: 18px;
     
 }
 
 .main-nav .nav-item:hover {
     background-color: #F4CE14;
     color: #495E57;
+    border: 2px solid #495E57;
+}
+
+.nav-image {
+    display: flex;
+    margin-right: 70px;
+    margin-top: 5px;
+    
 }

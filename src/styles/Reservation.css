@@ -1,14 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4c4b1; 
+    color: #344e41;
+  }
+  
+ 
 .bookingForm {
-    background-color: #495E57;
-    color: #F4CE14;
-    font-size: larger;
+    background-color: #495e57;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  
+  .title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #495e57;
+  }
+  
+  
+  .booking-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .booking-item label {
+    font-weight: bold;
+    color: #d8d4c2;
+    margin-bottom: 5px;
+  }
+  
+ 
+  .input {
+    padding: 8px;
+    border: 1px solid #d8d4c2;
+    border-radius: 5px;
+    background-color: #f4f1de;
+    font-size: 1rem;
+    color: #495e57;
+  }
+  
+  
+  select.input {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #f4f1de;
+  }
+  
+ 
+  #submit-btn {
+    background-color: #f4d35e;
+    color: #344e41;
+    font-weight: bold;
+    font-size: 1.2rem;
     padding: 10px;
-    margin-left: 300px;
-    margin-right: 300px;
-    border: 2px solid black;
-    border-radius: 20px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #submit-btn:hover {
+    background-color: #e9c46a;
+  }
+  
+
+
+
+
+
+
+
+/* Reservierungen anzeigen */
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-#res-date {
-    border: 2px solid black;
+.reservations {
+  background-color: #495e57;
+  padding: 10px;
+  border-radius: 10px;
+  color: #f4f1de;
+  text-align: center;
 }
+  
+  
+  
+  
+  

@@ -9,16 +9,16 @@ function BookingForm({ availableTimes, dispatch }) {
     const [occasion, setOccasion] = useState("");
     const [reservations, setReservations] = useState([]); 
 
-    
+
     function handleChangeDate(e) {
         const selectedDate = e.target.value;
         setDate(selectedDate);
 
-        
+
         dispatch({ type: 'UPDATE_TIMES', payload: selectedDate });
     }
 
-    
+
     function handleChangeTime(e) {
         setTime(e.target.value);
     }
@@ -31,10 +31,10 @@ function BookingForm({ availableTimes, dispatch }) {
         setOccasion(e.target.value);
     }
 
-    
+
     const handleSubmit = (e) => {
-        e.preventDefault(); 
-        
+        e.preventDefault();
+
         const newReservation = {
             date,
             time,
@@ -42,76 +42,84 @@ function BookingForm({ availableTimes, dispatch }) {
             occasion
         };
 
-        
         setReservations((prevReservations) => [...prevReservations, newReservation]);
 
-        
         setDate("");
         setTime("");
         setGuest(1);
         setOccasion("");
-    
+
 };
 
     return (
-        <>
-            <h2>Booking Form</h2>
+        <><>
+            <h1 className="title">Booking Form</h1>
             <form onSubmit={handleSubmit} className="bookingForm">
-                <fieldset>
-                    <label htmlFor="res-date">Choose date</label>
-                    <input 
-                        type="date" 
-                        id="res-date" 
-                        value={date} 
-                        onChange={handleChangeDate}>
-                    </input>
-                    <p>Your date: {date}</p>
 
-                    <label htmlFor="res-time">Choose time</label>
-                    <select 
-                        id="res-time" 
-                        value={time} 
-                        onChange={handleChangeTime}>
-                        {availableTimes.map((availableTime, index) => (
-                            <option key={index} value={availableTime}>
-                                {availableTime}
-                            </option>
-                        ))}
-                    </select>
-                    <p>Your time: {time}</p>
+                    <div className="booking-item">
+                        <label htmlFor="res-date">Date</label>
+                        <input
+                            type="date"
+                            className="input"
+                            value={date}
+                            onChange={handleChangeDate}
+                            placeholder="Date">
 
-                    <label htmlFor="guests">Number of guests</label>
-                    <input 
-                        type="number" 
-                        placeholder="1" 
-                        min={1} 
-                        max={10} 
-                        id="guests" 
-                        value={guest} 
-                        aria-label="On Click"
-                        onChange={handleChangeGuest}>
-                    </input>
-                    <p>Your number of guests: {guest}</p>
+                        </input>
+                    </div>
 
-                    <label htmlFor="occasion">Occasion</label>
-                    <select id="occasion" value={occasion} onChange={handleChangeOccasion}>
-                        <option value="Birthday">Birthday</option>
-                        <option value="Anniversary">Anniversary</option>
-                    </select>
-                    <input type="submit" value="Submit"></input>
-                </fieldset> 
+                    <div className="booking-item">
+                        <label htmlFor="res-time">Time</label>
+                        <select
+                            className="input"
+                            value={time}
+                            onChange={handleChangeTime}>
+                            {availableTimes.map((availableTime, index) => (
+                                <option key={index} value={availableTime}>
+                                    {availableTime}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="booking-item">
+                        <label htmlFor="guests">Number of guests</label>
+                        <input
+                            type="number"
+                            placeholder="1"
+                            min={1}
+                            max={10}
+                            className="input"
+                            value={guest}
+                            aria-label="On Click"
+                            onChange={handleChangeGuest}>
+                        </input>
+                    </div>
+
+                    <div className="booking-item">
+                        <label htmlFor="occasion">Occasion</label>
+                        <select className="input"
+                            value={occasion}
+                            onChange={handleChangeOccasion}>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Anniversary">Anniversary</option>
+                        </select>
+
+                    </div>
+                    <input type="submit" value="Submit" id="submit-btn"></input>
+
             </form>
-
-            <h3>Your Reservations</h3>
-            <ul>
+        </><h2 className="title">Your Reservations</h2><ul className="reservations">
                 {reservations.map((reservation, index) => (
                     <li key={index}>
-                        <strong>Date:</strong> {reservation.date}, <strong>Time:</strong> {reservation.time}, 
-                        <strong> Guests:</strong> {reservation.guest}, <strong>Occasion:</strong> {reservation.occasion}
+                        <strong>Date:</strong> {reservation.date},
+                        <strong>Time:</strong> {reservation.time},
+                        <strong> Guests:</strong> {reservation.guest},
+                        <strong>Occasion:</strong> {reservation.occasion}
                     </li>
                 ))}
-            </ul>
-        </>
+            </ul></>
+
     );
 }
 
